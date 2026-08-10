@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Margarita Guevara — Ropa y calzado hecho para durar</title>
+<meta name="description" content="Margarita Guevara. Camisetas estampadas y calzado artesanal colombiano: alpargatas, mafaldas y sandalias.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* paleta tomada de la carta de colores de la marca */
+    --cream:      #F7F1E6;   /* Cream / fondo principal */
+    --chalk:      #EFE6D6;   /* Chalk Beige / superficies */
+    --peach:      #EAD9C3;   /* Peach Cream / superficies suaves */
+    --white-beige:#FBF8F2;   /* White Beige / tarjetas */
+    --peanut:     #A9805F;   /* Peanut / acento principal */
+    --neutral:    #9C8B76;   /* Neutral / texto secundario, taupe */
+    --ink:        #3B2A20;   /* casi-negro cálido, tomado del "Chocolate" de las camisetas */
+    --burdeos:    #6F2334;   /* Burdeos, color real de las camisetas */
+    --line: rgba(59,42,32,0.14);
+    --radius: 3px;
+    --maxw: 1240px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px;}
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--peanut);
+    font-weight:500;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 26px;
+    border:1px solid var(--ink);
+    border-radius:var(--radius);
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:transparent;
+    cursor:pointer;
+    transition:background .35s ease, color .35s ease;
+  }
+  .btn:hover{ background:var(--ink); color:var(--cream); }
+  .btn-solid{ background:var(--ink); color:var(--cream); }
+  .btn-solid:hover{ background:var(--burdeos); border-color:var(--burdeos); }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s ease, transform .8s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(247,241,230,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 32px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{
+    font-family:'Alex Brush', cursive;
+    font-size:38px;
+    color:var(--peanut);
+    line-height:1;
+    padding-top:6px;
+  }
+  .nav-links{
+    display:flex; gap:40px; list-style:none; margin:0; padding:0;
+    font-size:13px; letter-spacing:0.06em; text-transform:uppercase;
+  }
+  .nav-links a{ position:relative; padding-bottom:4px; }
+  .nav-links a::after{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:1px;
+    background:var(--ink); transform:scaleX(0); transform-origin:left;
+    transition:transform .3s ease;
+  }
+  .nav-links a:hover::after{ transform:scaleX(1); }
+  .nav-icons{ display:flex; gap:20px; align-items:center; }
+  .nav-toggle{ display:none; background:none; border:none; cursor:pointer; color:var(--ink); }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:48px 32px 0;
+    max-width:var(--maxw); margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:end;
+    gap:48px;
+  }
+  .hero-copy .eyebrow{ margin-bottom:18px; display:block; }
+  .hero h1{
+    font-size:clamp(40px, 5.6vw, 72px);
+    line-height:1.02;
+  }
+  .hero h1 em{ font-style:italic; color:var(--peanut); }
+  .hero p{ max-width:400px; margin:26px 0 32px; color:#5c4a3a; }
+  .hero-media{
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    border-radius:var(--radius);
+  }
+  .hero-media img{ width:100%; height:100%; object-fit:cover; }
+  .hero-media .tag{
+    position:absolute; left:20px; bottom:20px;
+    background:var(--white-beige); padding:10px 16px;
+    font-size:12px; letter-spacing:0.06em; text-transform:uppercase;
+  }
+  .hero-foot{
+    grid-column:1/-1;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:36px 0 20px;
+    border-top:1px solid var(--line);
+    margin-top:44px;
+    font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--neutral);
+    flex-wrap:wrap; gap:10px;
+  }
+
+  /* ---------- marquee ---------- */
+  .marquee{
+    background:var(--ink);
+    color:var(--cream);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:14px 0;
+  }
+  .marquee-track{
+    display:inline-block;
+    animation:scroll 28s linear infinite;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:18px;
+  }
+  .marquee-track span{ margin:0 28px; color:var(--peach); }
+  @keyframes scroll{
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }
+
+  /* ---------- section shell ---------- */
+  section{ padding:100px 0; }
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px; margin-bottom:56px; flex-wrap:wrap;
+  }
+  .section-head h2{ font-size:clamp(30px,3.6vw,46px); margin-top:10px; }
+  .section-head p{ max-width:340px; color:var(--neutral); font-size:15px; }
+
+  /* ---------- products ---------- */
+  .grid-products{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:36px 26px;
+  }
+  .product{ cursor:default; }
+  .product-media{
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    background:var(--chalk);
+    border-radius:var(--radius);
+  }
+  .product-media img{
+    width:100%; height:100%; object-fit:cover;
+    transition:opacity .25s ease;
+  }
+  .product-media .badge{
+    position:absolute; top:12px; left:12px; z-index:2;
+    background:var(--white-beige); font-size:10.5px; letter-spacing:0.06em;
+    text-transform:uppercase; padding:5px 9px;
+  }
+  .product-info{ margin-top:14px; }
+  .product-info h3{ font-size:16px; font-weight:400; }
+  .product-info .price{ font-family:'Jost', sans-serif; font-size:14px; color:var(--neutral); margin-top:2px; }
+  .product-cat{ font-size:11.5px; color:var(--peanut); letter-spacing:0.05em; text-transform:uppercase; margin-top:4px; }
+  .swatches{ display:flex; gap:7px; margin-top:12px; flex-wrap:wrap; }
+  .swatch{
+    width:20px; height:20px; border-radius:50%;
+    border:1px solid var(--line);
+    cursor:pointer;
+    position:relative;
+    padding:0;
+  }
+  .swatch.active{ box-shadow:0 0 0 2px var(--cream), 0 0 0 3px var(--ink); }
+
+  /* ---------- calzado grid (3 productos grandes) ---------- */
+  .grid-calzado{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+  }
+
+  /* ---------- story ---------- */
+  .story{ background:var(--chalk); }
+  .story .wrap{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:center;
+  }
+  .story-media{ aspect-ratio:4/5; overflow:hidden; border-radius:var(--radius); }
+  .story-media img{ width:100%; height:100%; object-fit:cover; }
+  .story-copy p{ color:#5c4a3a; margin:22px 0; max-width:460px; }
+  .story-stats{ display:flex; gap:44px; margin-top:36px; flex-wrap:wrap; }
+  .stat .num{ font-family:'Fraunces', serif; font-size:34px; color:var(--peanut); }
+  .stat .label{ font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--neutral); margin-top:4px; }
+
+  /* ---------- signature ---------- */
+  .signature{ text-align:center; padding:120px 32px; }
+  .signature h2{ font-size:clamp(30px,4.4vw,54px); max-width:760px; margin:0 auto; line-height:1.18; }
+  .signature .eyebrow{ display:block; margin-bottom:22px; }
+  .signature .brand-mark{ font-family:'Alex Brush', cursive; font-size:64px; color:var(--peanut); display:block; margin-bottom:8px; }
+
+  /* ---------- editorial strip ---------- */
+  .strip{ display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:var(--line); }
+  .strip a{ position:relative; aspect-ratio:1/1; overflow:hidden; display:block; }
+  .strip img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+  .strip a:hover img{ transform:scale(1.06); }
+
+  /* ---------- newsletter ---------- */
+  .newsletter{ background:var(--ink); color:var(--cream); text-align:center; }
+  .newsletter h2{ font-size:clamp(30px,4vw,50px); max-width:620px; margin:0 auto 18px; }
+  .newsletter p{ color:#cdbfae; max-width:460px; margin:0 auto 34px; }
+  .nform{ display:flex; max-width:440px; margin:0 auto; border-bottom:1px solid rgba(247,241,230,0.4); }
+  .nform input{ flex:1; background:none; border:none; color:var(--cream); padding:14px 4px; font-family:'Jost'; font-size:15px; outline:none; }
+  .nform input::placeholder{ color:#a89a86; }
+  .nform button{ background:none; border:none; color:var(--cream); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; }
+
+  /* ---------- footer ---------- */
+  footer{ padding:80px 0 30px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; padding-bottom:60px; border-bottom:1px solid var(--line); }
+  .foot-brand .brand{ margin-bottom:10px; display:block; }
+  .foot-brand p{ color:var(--neutral); max-width:260px; font-size:14px; }
+  .foot-col h5{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:18px; color:var(--ink); }
+  .foot-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; font-size:14px; color:#5c4a3a; }
+  .foot-col ul a:hover{ color:var(--peanut); }
+  .foot-social{ display:flex; gap:16px; margin-top:6px; }
+  .bottom-bar{ display:flex; justify-content:space-between; align-items:center; padding-top:26px; font-size:12px; color:var(--neutral); flex-wrap:wrap; gap:10px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px){
+    .nav-links{ display:none; }
+    .nav-toggle{ display:block; }
+    .hero{ grid-template-columns:1fr; }
+    .hero-media{ order:-1; }
+    .story .wrap{ grid-template-columns:1fr; }
+    .grid-products{ grid-template-columns:repeat(2,1fr); }
+    .grid-calzado{ grid-template-columns:1fr; }
+    .strip{ grid-template-columns:repeat(2,1fr); }
+    .foot-grid{ grid-template-columns:1fr 1fr; }
+  }
+  @media (max-width: 560px){
+    .grid-products{ grid-template-columns:1fr; }
+    .foot-grid{ grid-template-columns:1fr; }
+    .story-stats{ gap:26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header>
+  <nav class="nav">
+    <a href="#" class="brand">Margarita Guevara</a>
+    <ul class="nav-links">
+      <li><a href="#camisetas">Camisetas</a></li>
+      <li><a href="#calzado">Calzado</a></li>
+      <li><a href="#historia">Nosotras</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <div class="nav-icons">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3.98 9.84A2 2 0 0 1 5.97 8h12.06a2 2 0 0 1 1.99 1.84l.8 10A2 2 0 0 1 18.83 22H5.17a2 2 0 0 1-1.99-2.16l.8-10Z"/><path d="M16 11V6a4 4 0 0 0-8 0v5"/></svg>
+      <button class="nav-toggle" aria-label="Abrir menú">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding-top:56px;">
+  <div class="hero-copy">
+    <span class="eyebrow">Camisetas · Alpargatas · Mafaldas · Sandalias</span>
+    <h1>Hecho a mano,<br>para <em>usarlo todos los días.</em></h1>
+    <p>Camisetas estampadas con personajes propios y calzado tejido a mano por talleres colombianos. Piezas simples, cómodas y pensadas para durar.</p>
+    <div style="display:flex; gap:16px; flex-wrap:wrap;">
+      <a href="#camisetas" class="btn btn-solid">Ver camisetas</a>
+      <a href="#calzado" class="btn">Ver calzado</a>
+    </div>
+  </div>
+  <div class="hero-media reveal">
+    <img src="assets/calzado/mafalda-1.jpg" alt="Mafaldas tejidas Margarita Guevara">
+    <div class="tag">Mafaldas tejidas a mano</div>
+  </div>
+  <div class="hero-foot">
+    <span>Envíos a toda Colombia</span>
+    <span>Calzado artesanal</span>
+    <span>Cambios sin costo, 15 días</span>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>ENVÍOS A TODO EL PAÍS</span><span>·</span>
+    <span>CALZADO TEJIDO A MANO</span><span>·</span>
+    <span>CAMISETAS EDICIÓN LIMITADA</span><span>·</span>
+    <span>HECHO EN COLOMBIA</span><span>·</span>
+    <span>ENVÍOS A TODO EL PAÍS</span><span>·</span>
+    <span>CALZADO TEJIDO A MANO</span><span>·</span>
+    <span>CAMISETAS EDICIÓN LIMITADA</span><span>·</span>
+    <span>HECHO EN COLOMBIA</span><span>·</span>
+  </div>
+</div>
+
+<!-- ============ CAMISETAS ============ -->
+<section id="camisetas">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Colección ositos</span>
+        <h2>Camisetas con personaje</h2>
+      </div>
+      <p>Cuatro personajes propios, cada uno en cuatro colores: burdeos, chocolate, mantequilla y marfil.</p>
+    </div>
+
+    <div class="grid-products">
+
+      <!-- CALEB -->
+      <div class="product reveal" data-product="caleb">
+        <div class="product-media">
+          <span class="badge">Nuevo</span>
+          <img src="assets/tees/caleb-burdeos.jpg" alt="Camiseta Caleb" data-img>
+        </div>
+        <div class="product-info">
+          <h3>Caleb</h3>
+          <div class="price">$89.000</div>
+          <div class="product-cat">Camiseta · Algodón</div>
+          <div class="swatches">
+            <button class="swatch active" style="background:#6F2334" data-src="assets/tees/caleb-burdeos.jpg" aria-label="Burdeos"></button>
+            <button class="swatch" style="background:#3B2A20" data-src="assets/tees/caleb-chocolate.jpg" aria-label="Chocolate"></button>
+            <button class="swatch" style="background:#E9D48C" data-src="assets/tees/caleb-mantequilla.jpg" aria-label="Mantequilla"></button>
+            <button class="swatch" style="background:#F4EEDF" data-src="assets/tees/caleb-marfil.jpg" aria-label="Marfil"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARLOTA -->
+      <div class="product reveal" data-product="carlota">
+        <div class="product-media">
+          <span class="badge">Nuevo</span>
+          <img src="assets/tees/carlota-marfil.jpg" alt="Camiseta Carlota" data-img>
+        </div>
+        <div class="product-info">
+          <h3>Carlota</h3>
+          <div class="price">$89.000</div>
+          <div class="product-cat">Camiseta · Algodón</div>
+          <div class="swatches">
+            <button class="swatch" style="background:#6F2334" data-src="assets/tees/carlota-burdeos.jpg" aria-label="Burdeos"></button>
+            <button class="swatch" style="background:#3B2A20" data-src="assets/tees/carlota-chocolate.jpg" aria-label="Chocolate"></button>
+            <button class="swatch" style="background:#E9D48C" data-src="assets/tees/carlota-mantequilla.jpg" aria-label="Mantequilla"></button>
+            <button class="swatch active" style="background:#F4EEDF" data-src="assets/tees/carlota-marfil.jpg" aria-label="Marfil"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMILIO -->
+      <div class="product reveal" data-product="emilio">
+        <div class="product-media">
+          <img src="assets/tees/emilio-chocolate.jpg" alt="Camiseta Emilio" data-img>
+        </div>
+        <div class="product-info">
+          <h3>Emilio</h3>
+          <div class="price">$89.000</div>
+          <div class="product-cat">Camiseta · Algodón</div>
+          <div class="swatches">
+            <button class="swatch" style="background:#6F2334" data-src="assets/tees/emilio-burdeos.jpg" aria-label="Burdeos"></button>
+            <button class="swatch active" style="background:#3B2A20" data-src="assets/tees/emilio-chocolate.jpg" aria-label="Chocolate"></button>
+            <button class="swatch" style="background:#E9D48C" data-src="assets/tees/emilio-mantequilla.jpg" aria-label="Mantequilla"></button>
+            <button class="swatch" style="background:#F4EEDF" data-src="assets/tees/emilio-marfil.jpg" aria-label="Marfil"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAMON -->
+      <div class="product reveal" data-product="ramon">
+        <div class="product-media">
+          <img src="assets/tees/ramon-mantequilla.jpg" alt="Camiseta Ramón" data-img>
+        </div>
+        <div class="product-info">
+          <h3>Ramón</h3>
+          <div class="price">$89.000</div>
+          <div class="product-cat">Camiseta · Algodón</div>
+          <div class="swatches">
+            <button class="swatch" style="background:#6F2334" data-src="assets/tees/ramon-burdeos.jpg" aria-label="Burdeos"></button>
+            <button class="swatch" style="background:#3B2A20" data-src="assets/tees/ramon-chocolate.jpg" aria-label="Chocolate"></button>
+            <button class="swatch active" style="background:#E9D48C" data-src="assets/tees/ramon-mantequilla.jpg" aria-label="Mantequilla"></button>
+            <button class="swatch" style="background:#F4EEDF" data-src="assets/tees/ramon-marfil.jpg" aria-label="Marfil"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALZADO ============ -->
+<section id="calzado" style="background:var(--white-beige);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Taller propio</span>
+        <h2>Calzado artesanal</h2>
+      </div>
+      <p>Alpargatas tejidas, mafaldas en rafia y sandalias planas — todo firmado Margarita Guevara.</p>
+    </div>
+
+    <div class="grid-calzado">
+
+      <!-- ALPARGATAS -->
+      <div class="product reveal" data-product="alpargata">
+        <div class="product-media" style="aspect-ratio:1/1;">
+          <img src="assets/calzado/alpargata-terracota.jpg" alt="Alpargatas Margarita Guevara" data-img>
+        </div>
+        <div class="product-info">
+          <h3>Alpargatas clásicas</h3>
+          <div class="price">$139.000</div>
+          <div class="product-cat">12 colores disponibles</div>
+          <div class="swatches">
+            <button class="swatch" style="background:#D998A6" data-src="assets/calzado/alpargata-guayaba.jpg" aria-label="Guayaba"></button>
+            <button class="swatch" style="background:#1E1B18" data-src="assets/calzado/alpargata-negro.jpg" aria-label="Negro"></button>
+            <button class="swatch" style="background:#F5F1E8" data-src="assets/calzado/alpargata-blanco.jpg" aria-label="Blanco"></button>
+            <button class="swatch" style="background:#C21F5B" data-src="assets/calzado/alpargata-fucsia.jpg" aria-label="Fucsia"></button>
+            <button class="swatch" style="background:#9C9A94" data-src="assets/calzado/alpargata-gris.jpg" aria-label="Gris"></button>
+            <button class="swatch" style="background:#5D7FA6" data-src="assets/calzado/alpargata-jean-claro.jpg" aria-label="Jean claro"></button>
+            <button class="swatch" style="background:#3E5A80" data-src="assets/calzado/alpargata-jean-medio.jpg" aria-label="Jean medio"></button>
+            <button class="swatch" style="background:#22344A" data-src="assets/calzado/alpargata-jean-oscuro.jpg" aria-label="Jean oscuro"></button>
+            <button class="swatch" style="background:#B9A8D6" data-src="assets/calzado/alpargata-lila.jpg" aria-label="Lila"></button>
+            <button class="swatch" style="background:#B9803F" data-src="assets/calzado/alpargata-miel.jpg" aria-label="Miel"></button>
+            <button class="swatch" style="background:#C22626" data-src="assets/calzado/alpargata-rojo.jpg" aria-label="Rojo"></button>
+            <button class="swatch active" style="background:#A9532E" data-src="assets/calzado/alpargata-terracota.jpg" aria-label="Terracota"></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAFALDAS -->
+      <div class="product reveal">
+        <div class="product-media" style="aspect-ratio:1/1;">
+          <img src="assets/calzado/mafalda-3.jpg" alt="Mafaldas tejidas Margarita Guevara">
+        </div>
+        <div class="product-info">
+          <h3>Mafaldas en rafia</h3>
+          <div class="price">$169.000</div>
+          <div class="product-cat">Tejido artesanal · Hebilla</div>
+        </div>
+      </div>
+
+      <!-- SANDALIAS -->
+      <div class="product reveal" data-product="sandalia">
+        <div class="product-media" style="aspect-ratio:1/1;">
+          <img src="assets/calzado/sandalia-roja.jpg" alt="Sandalias planas Margarita Guevara" data-img>
+        </div>
+        <div class="product-info">
+          <h3>Sandalias planas</h3>
+          <div class="price">$79.000</div>
+          <div class="product-cat">3 colores disponibles</div>
+          <div class="swatches">
+            <button class="swatch active" style="background:#C21F1F" data-src="assets/calzado/sandalia-roja.jpg" aria-label="Rojo"></button>
+            <button class="swatch" style="background:#F5F1E8" data-src="assets/calzado/sandalia-blanca.jpg" aria-label="Blanco"></button>
+            <button class="swatch" style="background:#161412" data-src="assets/calzado/sandalia-negra.jpg" aria-label="Negro"></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ HISTORIA ============ -->
+<section id="historia" class="story">
+  <div class="wrap">
+    <div class="story-media reveal">
+      <img src="assets/calzado/alpargata-editorial-1.jpg" alt="Taller de calzado Margarita Guevara">
+    </div>
+    <div class="story-copy reveal">
+      <span class="eyebrow">Nuestra historia</span>
+      <h2>Cada par y cada camiseta llevan nuestro nombre bordado adentro.</h2>
+      <p>Margarita Guevara nace de una idea simple: la ropa y el calzado del día a día también merecen estar bien hechos. Trabajamos con talleres colombianos que tejen alpargatas y mafaldas a mano, y estampamos cada camiseta con personajes propios.</p>
+      <p>No hacemos colecciones gigantes. Hacemos pocas piezas, bien hechas, para que las repitas sin pensarlo.</p>
+      <div class="story-stats">
+        <div class="stat"><div class="num">100%</div><div class="label">Hecho en Colombia</div></div>
+        <div class="stat"><div class="num">12</div><div class="label">Colores de alpargata</div></div>
+        <div class="stat"><div class="num">15</div><div class="label">Días de cambio</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIGNATURE ============ -->
+<section class="signature reveal">
+  <span class="eyebrow">Filosofía de marca</span>
+  <span class="brand-mark">Margarita Guevara</span>
+  <h2>El mismo nombre grabado en cada suela, en cada estampado. Si lleva nuestro nombre, está hecho para durar.</h2>
+</section>
+
+<!-- ============ EDITORIAL STRIP ============ -->
+<section style="padding:0 0 100px;">
+  <div class="wrap" style="margin-bottom:44px;">
+    <div class="section-head" style="margin-bottom:0;">
+      <div><span class="eyebrow">Síguenos</span><h2>@margaritaguevara</h2></div>
+      <p>El calzado y las camisetas puestos en la calle, no solo en el estudio.</p>
+    </div>
+  </div>
+  <div class="strip">
+    <a href="#" class="reveal"><img src="assets/calzado/mafalda-7.jpg" alt="Mafaldas en uso"></a>
+    <a href="#" class="reveal"><img src="assets/calzado/alpargata-editorial-2.jpg" alt="Alpargatas detalle"></a>
+    <a href="#" class="reveal"><img src="assets/tees/carlota-chocolate.jpg" alt="Camiseta Carlota chocolate"></a>
+    <a href="#" class="reveal"><img src="assets/calzado/mafalda-4.jpg" alt="Mafaldas con flores"></a>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="newsletter">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--peach);">No te pierdas nada</span>
+    <h2 style="margin-top:16px;">Entérate primero de las próximas colecciones y colores.</h2>
+    <p>Un correo al mes, nada más. Sin spam, sin ruido.</p>
+    <form class="nform" onsubmit="event.preventDefault(); this.querySelector('button').textContent='¡Listo!';">
+      <input type="email" required placeholder="tu@correo.com">
+      <button type="submit">Suscribirme</button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contacto">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#" class="brand">Margarita Guevara</a>
+        <p>Camisetas estampadas y calzado artesanal colombiano. Piezas simples, cómodas, hechas para durar.</p>
+        <div class="foot-social">
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 3v10.5a3.5 3.5 0 1 1-3-3.46V6a5 5 0 0 0 5 4V7a4 4 0 0 1-2-4"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20l1.1-5.4A8.5 8.5 0 1 1 21 11.5Z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Tienda</h5>
+        <ul>
+          <li><a href="#camisetas">Camisetas</a></li>
+          <li><a href="#calzado">Alpargatas</a></li>
+          <li><a href="#calzado">Mafaldas</a></li>
+          <li><a href="#calzado">Sandalias</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Ayuda</h5>
+        <ul>
+          <li><a href="#">Guía de tallas</a></li>
+          <li><a href="#">Cambios y devoluciones</a></li>
+          <li><a href="#">Rastrear pedido</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:hola@margaritaguevara.co">hola@margaritaguevara.co</a></li>
+          <li><a href="tel:+573000000000">+57 300 000 0000</a></li>
+          <li>Colombia</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <span>© 2026 Margarita Guevara. Todos los derechos reservados.</span>
+      <span>Fotografías y catálogo propios de la marca.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // reveal on scroll
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el=> io.observe(el));
+
+  // color swatches: swap product image
+  document.querySelectorAll('.swatches').forEach(group=>{
+    const media = group.closest('.product').querySelector('[data-img]');
+    group.querySelectorAll('.swatch').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        group.querySelectorAll('.swatch').forEach(b=> b.classList.remove('active'));
+        btn.classList.add('active');
+        media.style.opacity = 0;
+        setTimeout(()=>{ media.src = btn.dataset.src; media.style.opacity = 1; }, 150);
+      });
+    });
+  });
+
+  // mobile nav
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if(toggle){
+    toggle.addEventListener('click', ()=>{
+      const open = navLinks.style.display === 'flex';
+      navLinks.style.display = open ? 'none' : 'flex';
+      navLinks.style.cssText += open ? '' : 'position:absolute; top:60px; left:0; right:0; background:var(--cream); flex-direction:column; gap:0; padding:10px 32px; border-bottom:1px solid var(--line);';
+      navLinks.querySelectorAll('a').forEach(a=> a.style.padding = '14px 0');
+    });
+  }
+</script>
+
+</body>
+</html>
